@@ -1,0 +1,21 @@
+{
+  "name": "noteapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix Backend &&  npm install --prefix Frontend/vite-project && npm run build --prefix Frontend/vite-project",
+    "start": "npm run start --prefix Backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mr-Leftie/NoteApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mr-Leftie/NoteApp/issues"
+  },
+  "homepage": "https://github.com/Mr-Leftie/NoteApp#readme",
+  "description": ""
+}
