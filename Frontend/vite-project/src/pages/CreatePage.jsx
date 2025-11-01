@@ -25,7 +25,7 @@ const CreatePage = () => {
       navigate("/");
     } catch (error) {
       console.log("Error creating note:", error);
-      if (error.response.status === 429) {
+      if (error.response?.status === 429) {
         toast.error("Failed to create note , too many requests.", {
           duration: 4000,
         });
@@ -39,12 +39,15 @@ const CreatePage = () => {
   return (
     <div className="min-h-screen bg-base-200">
       <div className="container mx-auto px-4 py-8">
-        <div className="max-w-2xl mx-auto">
-          <Link to={"/"} className="btn-btn-ghost mb-6">
+        <div className="max-w-3xl mx-auto">
+          <Link
+            to={"/"}
+            className="btn btn-ghost mb-6 gap-2 text-base-content/70 hover:text-base-content"
+          >
             <ArrowLeftIcon className="size-5" />
             Back to Notes
           </Link>
-          <div className="card-bg-base-100">
+          <div className="card-bg-base-100 shadow-xl">
             <div className="card-body">
               <h2 className="card-title mb-4 text-2xl">Create New Note</h2>
               <form onSubmit={handleSubmit}>
@@ -66,7 +69,7 @@ const CreatePage = () => {
                   </label>
                   <textarea
                     placeholder="Write your note here..."
-                    className="textarea textarea-bordered h-32"
+                    className="textarea textarea-bordered h-40"
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                   />
@@ -77,7 +80,10 @@ const CreatePage = () => {
                     className="btn btn-primary"
                     disabled={loading}
                   >
-                    {loading ? "Creating..." : "Create Note"}
+                    {loading && (
+                      <span className="loading loading-spinner loading-xs mr-2"></span>
+                    )}
+                                      {loading ? "Creating..." : "Create Note"}
                   </button>
                 </div>
               </form>
